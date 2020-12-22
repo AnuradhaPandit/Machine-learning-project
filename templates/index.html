@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Student engagement level predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Engagement Level Of Students</h1>
+     <h3> Enter the following values to predict the engagement level of students</h3>
+     <h5>Please enter following values for Final Result:Pass=2,Fail=1,Withdraw=3</h5>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="final_result" placeholder="Final Result" required="required" />
+        <input type="text" name="score" placeholder="Score in assessment" required="required" />
+	<input type="text" name="sum_clicks" placeholder="Sum of clicks" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+   <h5> For Low Engagement value=0 ; High Engagement value=1</h5>
+ </div>
+
+
+</body>
+</html>
